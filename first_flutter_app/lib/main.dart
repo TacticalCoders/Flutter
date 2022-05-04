@@ -1,9 +1,10 @@
+//모든 플러터 앱에 필요한 다트 패키지를 임포트 한다.
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+//runApp()은 루트 위젯 하나를 인수로 받는다.
+void main() => runApp(const MyApp());
 
+//루트 위젯. 어떤 이름을 붙여도 상관 없다. 단, StatelessWidget을 상속한 클래스여야 한다.
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
