@@ -2,7 +2,10 @@
 import 'package:flutter/material.dart';
 
 //runApp()은 루트 위젯 하나를 인수로 받는다.
-void main() => runApp(const MyApp());
+void main() => runApp(const MyApp()); //플러터는 UI도 Dart로 작성한다.
+
+// *위젯이란?
+// 플러터는 위젯(=컴포넌트)이 전부다. 플러터가 제공하는 '기본 위젯'을 활용하여 앱을 구성할 수 있다.
 
 //루트 위젯. 어떤 이름을 붙여도 상관 없다. 단, StatelessWidget을 상속한 클래스여야 한다.
 class MyApp extends StatelessWidget {
@@ -10,24 +13,24 @@ class MyApp extends StatelessWidget {
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) { //모든 위젯은 BuildContext를 인수로 받는 build 메서드가 있다.
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Hello Flutter"),
+        ),
+        body: Container(
+          alignment: Alignment.center,
+          child: Text("Hello world"),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.thumb_up),
+          onPressed: () => {},
+        ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
-  }
+  } //build 메서드는 MaterialApp이라는 위젯 하나를 리턴하지만, MaterialApp안에는 AppBar, Container, FloatingActionButton 세 개의 위젯이 있는 Scaffold(*발판)이 있다.
+//기본 위젯들을 사용하여 커스텀 위젯을 만들고 그 위젯들을 루트 위젯에서 합하여 앱을 구성하는 구조로 개발을 진행하면 될 것 같다.
 }
 
 class MyHomePage extends StatefulWidget {
